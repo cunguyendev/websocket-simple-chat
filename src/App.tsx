@@ -1,9 +1,13 @@
+// Layouts
 import { MainLayout } from './layouts';
+
+// Components
+import { Chat } from './components';
 
 const App = () => {
   return (
     <MainLayout title="WebSocket - Simple chat">
-      <h1 className="">Lorem ipsum dolor sit.</h1>
+      <Chat />
     </MainLayout>
   );
 };
