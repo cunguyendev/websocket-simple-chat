@@ -1,8 +1,10 @@
+import { MainLayout } from './layouts';
+
 const App = () => {
   return (
-    <main>
+    <MainLayout>
       <h1 className="">Lorem ipsum dolor sit.</h1>
-    </main>
+    </MainLayout>
   );
 };
 

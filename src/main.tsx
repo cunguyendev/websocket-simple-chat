@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 // CSS
-import './index.css';
+import '../src/styles/index.css';
 
 // Components
 import App from './App.tsx';
