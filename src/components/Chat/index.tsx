@@ -1,7 +1,4 @@
-import { clsx } from 'clsx';
-
 // Theme
-import { theme } from '../../theme';
 import { Message } from '../Message';
 
 const conversation = [
@@ -30,12 +27,7 @@ const conversation = [
 
 export const Chat = () => {
   return (
-    <div
-      className={clsx(
-        'w-[425px] mx-auto flex-1 overflow-y-auto p-4 rounded-lg mb-10',
-        `bg-[${theme.chatBackground}]`
-      )}
-    >
+    <div className="max-w-[425px] mx-auto flex-1 overflow-y-auto p-4 rounded-lg">
       <div className="flex flex-col gap-3">
         {conversation.map(({ message, isYou }) => {
           return (
