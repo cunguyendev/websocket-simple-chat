@@ -1,14 +1,25 @@
 import { ReactNode } from 'react';
+import { clsx } from 'clsx';
 
-interface MainLayoutProps {
+interface MainLayoutProps
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLElement>,
+    HTMLElement
+  > {
   children?: ReactNode;
+  title?: string;
 }
 
-export const MainLayout = ({ children }: MainLayoutProps) => {
+export const MainLayout = ({
+  title,
+  children,
+  className,
+  ...rest
+}: MainLayoutProps) => {
   return (
-    <div className="bg-primary">
-      <p>Lorem ipsum dolor sit.</p>
+    <main className={clsx('bg-[#efefef] h-screen', className)} {...rest}>
+      {title && <h1 className="text-center p-4 text-2xl font-bold">{title}</h1>}
       {children}
-    </div>
+    </main>
   );
 };
