@@ -22,7 +22,7 @@ const App = () => {
   }));
 
   return (
-    <MainLayout title="WebSocket - Simple chat">
+    <MainLayout title="WebSocket - Simple chat" isShowVersion>
       <Chat messages={formatMessages} />
       <InputMessage onSendMessage={handleSendMessage} />
     </MainLayout>
