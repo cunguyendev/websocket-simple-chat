@@ -2,8 +2,14 @@ const { v4: uuidv4 } = require('uuid');
 const express = require('express');
 const { WebSocketServer } = require('ws');
 const http = require('http');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 

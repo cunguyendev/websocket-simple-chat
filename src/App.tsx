@@ -3,6 +3,7 @@ import { MainLayout } from './layouts';
 
 // Components
 import { Chat, InputMessage } from './components';
+import { Preload } from './components/Preload';
 
 // Hooks
 import { useWebSocket } from './hooks';
@@ -23,8 +24,10 @@ const App = () => {
 
   return (
     <MainLayout title="WebSocket - Simple chat" isShowVersion>
-      <Chat messages={formatMessages} />
-      <InputMessage onSendMessage={handleSendMessage} />
+      <Preload>
+        <Chat messages={formatMessages} />
+        <InputMessage onSendMessage={handleSendMessage} />
+      </Preload>
     </MainLayout>
   );
 };
