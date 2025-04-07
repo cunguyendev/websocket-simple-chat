@@ -1,8 +1,9 @@
-const { v4: uuidv4 } = require('uuid');
-const express = require('express');
-const { WebSocketServer } = require('ws');
-const http = require('http');
-const cors = require('cors');
+import express from 'express';
+import { v4 as uuidv4 } from 'uuid';
+import { WebSocketServer, WebSocket } from 'ws';
+
+import http from 'http';
+import cors from 'cors';
 
 const app = express();
 app.use(cors());
@@ -13,7 +14,11 @@ app.get('/health', (req, res) => {
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
-wss.on('connection', (ws) => {
+type WebSocketCustom = WebSocket & {
+  id: string;
+};
+
+wss.on('connection', (ws: WebSocketCustom) => {
   ws.id = uuidv4();
   console.log(`New client connected: ${ws.id}`);
 
