@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 // Interfaces
 import { ClientInit, Message } from '../interfaces';
 
+const websocketServer = import.meta.env.VITE_WEBSOCKET_SERVER;
+
 export const useWebSocket = () => {
   const [currentClientId, setCurrentClientId] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
@@ -10,7 +12,7 @@ export const useWebSocket = () => {
   const ws = useRef<WebSocket>(null);
 
   useEffect(() => {
-    ws.current = new WebSocket('ws://localhost:3000');
+    ws.current = new WebSocket(websocketServer);
 
     ws.current.onmessage = async (event) => {
       const data = await event.data;
