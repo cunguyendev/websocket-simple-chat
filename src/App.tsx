@@ -8,7 +8,7 @@ import { Chat, InputMessage } from './components';
 import { useWebSocket } from './hooks';
 
 const App = () => {
-  const { messages, sendMessage } = useWebSocket();
+  const { messages, currentClientId, sendMessage } = useWebSocket();
 
   const handleSendMessage = (message: string) => {
     if (message) {
@@ -16,9 +16,14 @@ const App = () => {
     }
   };
 
+  const formatMessages = messages.map((message) => ({
+    isYou: message.from === currentClientId,
+    ...message,
+  }));
+
   return (
     <MainLayout title="WebSocket - Simple chat">
-      <Chat messages={messages} />
+      <Chat messages={formatMessages} />
       <InputMessage onSendMessage={handleSendMessage} />
     </MainLayout>
   );

@@ -15,7 +15,7 @@ export const Chat = ({ messages }: ChatProps) => {
         {messages.map(({ message, isYou }) => {
           return (
             <Message
-              align={isYou ? 'left' : 'right'}
+              align={isYou ? 'right' : 'left'}
               message={message}
               key={message}
             />

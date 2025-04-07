@@ -6,4 +6,5 @@ export type ClientInit = {
 export type Message = {
   message: string;
   from: string;
+  isYou?: boolean;
 };
