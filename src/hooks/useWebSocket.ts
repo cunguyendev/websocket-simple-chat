@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 
+// Interfaces
+import { ClientInit, Message } from '../interfaces';
+
 export const useWebSocket = () => {
-  const [messages, setMessages] = useState<
-    { message: string; isYou: boolean }[]
-  >([]);
+  const [currentClientId, setCurrentClientId] = useState('');
+  const [messages, setMessages] = useState<Message[]>([]);
 
   const ws = useRef<WebSocket>(null);
 
@@ -11,8 +13,21 @@ export const useWebSocket = () => {
     ws.current = new WebSocket('ws://localhost:3000');
 
     ws.current.onmessage = async (event) => {
-      const text = await event.data.text();
-      setMessages((prev) => [...prev, { message: text, isYou: false }]);
+      const data = await event.data;
+
+      try {
+        const parseData = JSON.parse(data) as ClientInit | Message;
+
+        if ('type' in parseData) {
+          setCurrentClientId(parseData.clientId);
+        }
+
+        if ('message' in parseData) {
+          setMessages((prev) => [...prev, { ...parseData }]);
+        }
+      } catch (error) {
+        console.log('Error while parsing data: ', error);
+      }
     };
 
     return () => {
@@ -28,6 +43,7 @@ export const useWebSocket = () => {
 
   return {
     messages,
+    currentClientId,
     sendMessage,
   };
 };

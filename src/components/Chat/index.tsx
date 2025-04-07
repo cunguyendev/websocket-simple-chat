@@ -1,8 +1,11 @@
 // Theme
 import { Message } from '../Message';
 
+// Interfaces
+import { Message as MessageType } from '../../interfaces';
+
 interface ChatProps {
-  messages: { message: string; isYou: boolean }[];
+  messages: MessageType[];
 }
 
 export const Chat = ({ messages }: ChatProps) => {

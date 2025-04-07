@@ -1,3 +1,4 @@
+const { v4: uuidv4 } = require('uuid');
 const express = require('express');
 const { WebSocketServer } = require('ws');
 const http = require('http');
@@ -7,14 +8,18 @@ const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
 wss.on('connection', (ws) => {
-  console.log('New client connected');
+  ws.id = uuidv4();
+  console.log(`New client connected: ${ws.id}`);
+
+  ws.send(JSON.stringify({ type: 'init', clientId: ws.id }));
 
   ws.on('message', (message) => {
     console.log(`Received: ${message}`);
     wss.clients.forEach((client) => {
-      console.log(client);
       if (client.readyState === ws.OPEN) {
-        client.send(message);
+        client.send(
+          JSON.stringify({ message: message.toString('utf-8'), from: ws.id })
+        );
       }
     });
   });
