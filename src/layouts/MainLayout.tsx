@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import { clsx } from 'clsx';
 
-// Package JSON
-import packageJson from '../../package.json';
+// Constants
+import { appInformation } from '../constants';
 
 interface MainLayoutProps
   extends React.DetailedHTMLProps<
@@ -29,7 +29,7 @@ export const MainLayout = ({
       <header className="p-4">
         {title && <h1 className="text-center text-2xl font-bold">{title}</h1>}
         {isShowVersion && (
-          <p className="text-center text-sm">{`Version: ${packageJson.version}`}</p>
+          <p className="text-center text-sm">{`Version: ${appInformation.version}`}</p>
         )}
       </header>
 

@@ -7,6 +7,7 @@ import { Preload } from './components/Preload';
 
 // Hooks
 import { useWebSocket } from './hooks';
+import { appInformation } from './constants';
 
 const App = () => {
   const { messages, currentClientId, sendMessage } = useWebSocket();
@@ -23,7 +24,7 @@ const App = () => {
   }));
 
   return (
-    <MainLayout title="WebSocket - Simple chat" isShowVersion>
+    <MainLayout title={appInformation.description} isShowVersion>
       <Preload>
         <Chat messages={formatMessages} />
         <InputMessage onSendMessage={handleSendMessage} />
