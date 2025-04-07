@@ -39,7 +39,7 @@ export const InputMessage = ({ onSendMessage }: InputMessageProps) => {
       <div className="h-10 w-10">
         <button
           type="button"
-          className="bg-[#7a5cff] hover:opacity-80 rounded-full w-full h-full flex items-center justify-center"
+          className="bg-[#7a5cff] hover:opacity-80 rounded-full w-full h-full flex items-center justify-center transition active:scale-95 duration-150"
           onClick={handleOnSubmitForm}
         >
           <LuSendHorizontal color="#fff" />
