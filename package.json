@@ -5,7 +5,9 @@
   "type": "module",
   "description": "WebSocket - Simple chat",
   "scripts": {
+    "prepare": "cd websocket-server && pnpm install",
     "dev": "vite",
+    "dev-server": "cd websocket-server && pnpm start",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
