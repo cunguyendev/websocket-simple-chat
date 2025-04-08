@@ -70,4 +70,4 @@ pnpm dev-both
 
 ## Quick Demo
 
-<video src="./Demo.MP4" autoplay controls>
+<video src="https://github.com/user-attachments/assets/0eed74c5-0198-45a6-94c8-13c788fa8ac6" autoplay controls>
