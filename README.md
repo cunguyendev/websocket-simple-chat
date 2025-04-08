@@ -39,11 +39,20 @@ _This command will install the necessary packages for the app, including those i
 
 ### 3. Start the development server
 
+Please follow the `.env.example` file to set all the environment variables for the app — for example, for local development
+
+```js
+VITE_WEBSOCKET_SERVER=ws://localhost:3000
+VITE_DOMAIN_SERVER=http://localhost:3000
+```
+
 Start WebSocket server
 
 ```bash
 pnpm dev-server
 ```
+
+_The WebSocket server will start at http://localhost:3000 by default_
 
 Start Frontend app
 
@@ -51,4 +60,10 @@ Start Frontend app
 pnpm dev
 ```
 
-_The app will start at http://localhost:5173 by default._
+_The frontend app will start at http://localhost:5173 by default._
+
+📝 Or you can also use this command to start both the front-end app and the WebSocket server simultaneously:
+
+```bash
+pnpm dev-both
+```
