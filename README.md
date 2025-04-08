@@ -13,7 +13,7 @@ This is a Vite-powered front-end application to make a simple chat with WebSocke
 - [Node.js](https://nodejs.org/en) (v23 or higher recommended)
 - [pnpm](https://pnpm.io/) (v9 or higher recommended)
 
-## 🔧 Getting Started
+## Getting Started
 
 Steps to run this app on your local machine
 
@@ -67,3 +67,7 @@ _The frontend app will start at http://localhost:5173 by default._
 ```bash
 pnpm dev-both
 ```
+
+## Quick Demo
+
+<video src="./Demo.MP4" autoplay controls>
