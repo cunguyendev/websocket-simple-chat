@@ -2,6 +2,8 @@
 
 This is a Vite-powered front-end application to make a simple chat with WebSocket
 
+Preview page: https://websocket-chat.cunguyen.com
+
 ## Tech Stack
 
 - [Vite](https://vitejs.dev/)
